@@ -35,9 +35,3 @@ let calcScrollValue = () => {
 
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
-
-window.onload = () => {
-    let scrollArea = document.getElementById("scroll-area");
-    scrollArea.style.height = document.body.scrollHeight - window.innerHeight + "px";
-};
-
