@@ -5,19 +5,19 @@ let train = document.getElementById("train");
 let desert_moon = document.getElementById("desert-moon");
 let man = document.getElementById("man");
 
-let productsEnd = document.getElementById("produtos-fim"); // Substitua "produtos-fim" pelo ID real do elemento que marca o final da seção de produtos
+let productsEnd = document.getElementById("produtos-fim");
 
 window.addEventListener("scroll", () => {
     let value = window.scrollY;
 
     // Aplicar efeito parallax às imagens
-    moon.style.top = value * 0.9 + "px"; // Ajuste o valor conforme necessário para o efeito desejado
+    moon.style.top = value * 0.9 + "px"; 
     text.style.top = 80 + value * -0.2 + "%";
-    train.style.left = value * 0.75 + "px"; // Ajuste o valor conforme necessário para o efeito desejado
+    train.style.left = value * 0.75 + "px"; 
     desert_moon.style.top = value * 0.3 + "px";
     man.style.left = value * 0.6 + "px";
 
-    // Limitar a barra de rolagem ao final da seção de produtos
+    
     if (value >= productsEnd.offsetTop) {
         document.documentElement.scrollTop = productsEnd.offsetTop;
     }
