@@ -5,20 +5,14 @@ let train = document.getElementById("train");
 let desert_moon = document.getElementById("desert-moon");
 let man = document.getElementById("man");
 
-let productSection = document.getElementById("products"); // Altere "products" para o ID do elemento que marca a área dos produtos
-
 window.addEventListener("scroll", () => {
     let value = window.scrollY;
+    moon.style.top = value * 9 + "px";
+    text.style.top = 80 + value * -0.2 + "%";
+    train.style.left = value * 1.5 + "px";
 
-    // Verificar se o scroll está dentro da área dos produtos
-    if (value >= productSection.offsetTop && value <= productSection.offsetTop + productSection.offsetHeight) {
-        moon.style.top = value * 9 + "px";
-        text.style.top = 80 + value * -0.2 + "%";
-        train.style.left = value * 1.5 + "px";
-
-        desert_moon.style.top = value * 0.3 + "px";
-        man.style.left = value * 0.6 + "px";
-    }
+    desert_moon.style.top = value * 0.3 + "px";
+    man.style.left = value * 0.6 + "px";
 });
 
 let calcScrollValue = () => {
@@ -39,5 +33,7 @@ let calcScrollValue = () => {
     scrollProgress.style.background = `conic-gradient(#194eb9 ${scrollValue}%,#67ccff ${scrollValue}%)`;
 };
 
-window.onscroll = calcScrollValue;
-window.onload = calcScrollValue;
+window.onload = () => {
+    let scrollArea = document.getElementById("scroll-area");
+    scrollArea.style.height = document.body.scrollHeight - window.innerHeight + "px";
+};
